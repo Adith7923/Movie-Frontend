@@ -1,0 +1,77 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 12px 24px;
+  border-bottom: 2px solid yellow;
+  color: white;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+}
+
+.navItems {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.navItem {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navItem:hover {
+  color: yellow;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.iconButton:hover {
+  color: yellow;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.profileIcon {
+  font-size: 24px;
+  color: white;
+}
+.profileIcon:hover {
+  color: yellow;
+}
+
+.username {
+  font-weight: bold;
+  color: white;
+}
+
+.username:hover {
+  color: yellow;
+}

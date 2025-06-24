@@ -1,0 +1,46 @@
+.searchbarContainer {
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchbarIcon {
+  position: absolute;
+  right: 12px;
+  color: yellow;
+  font-size: 20px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 0.2s ease;
+}
+
+.searchbarIconInactive {
+  position: absolute;
+  right: 12px;
+  color: yellow;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.searchbarInput {
+  width: 100%;
+  padding: 10px 36px 10px 12px;
+  font-size: 16px;
+  border: 2px solid yellow;
+  border-radius: 25px;
+  background-color: black;
+  color: yellow;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchbarInput::placeholder {
+  color: rgba(255, 255, 0, 0.6);
+}
+
+.searchbarInput:focus {
+  border-color: #f1c40f;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
+}

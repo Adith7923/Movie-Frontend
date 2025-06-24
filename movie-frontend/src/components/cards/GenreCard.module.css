@@ -1,0 +1,25 @@
+.genreCard {
+  width: 450px;
+  height: 130px;
+  border: 2px solid yellow;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: yellow;
+  box-shadow: 0 4px 12px rgba(255, 255, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.genreCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(255, 255, 0, 0.4);
+}
+
+.genreHeading {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
