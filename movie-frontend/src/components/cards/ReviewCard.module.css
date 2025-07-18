@@ -1,13 +1,12 @@
 .reviewCard {
-  background-color: #111;
   border: 2px solid yellow;
-  border-radius: 10px;
+  border-radius: 25px;
   padding: 25px;
   width: 100%;
+  min-width: 400px;
   max-width: 400px;
   height: 250px;
   color: white;
-  font-family: sans-serif;
 }
 
 .header {

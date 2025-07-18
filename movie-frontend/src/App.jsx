@@ -1,15 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import MovieDetails from "./pages/MovieDetails";
-import AddMovie from "./pages/AddMovie";
+import AuthPage from "./pages/authpage/AuthPage";
+import UserPage from "./pages/User/UserPage"; // <-- Import your UserPage
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie/:id" element={<MovieDetails />} />
-        <Route path="/admin/add-movie" element={<AddMovie />} />
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/user/*" element={<UserPage />} /> {/* User Routes */}
       </Routes>
     </Router>
   );

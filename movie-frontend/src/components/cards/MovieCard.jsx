@@ -3,11 +3,15 @@ import PropTypes from "prop-types";
 import styles from "./MovieCard.module.css";
 
 const MovieCard = ({ title, rating, image, onClick }) => {
+  const backgroundImage = image ? `url(${image})` : "url(/fallback.jpg)"; // Replace with your fallback image if needed
+
   return (
     <div
       className={styles.movieCard}
       onClick={onClick}
-      style={{ backgroundImage: `url(${image})` }}
+      style={{ backgroundImage }}
+      role="button"
+      aria-label={`Movie: ${title}`}
     >
       <div className={styles.movieOverlay}>
         <h3 className={styles.movieTitle}>{title}</h3>

@@ -1,0 +1,16 @@
+.container {
+  padding: 3vw;
+}
+
+.heading {
+  color: yellow;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}

@@ -1,0 +1,36 @@
+.latestMoviesContainer {
+  margin: 38px 0;
+  padding: 1vh 3vw;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: yellow;
+  text-align: left;
+}
+
+.movieRow {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  padding: 8px;
+  gap: 16px;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: yellow black;
+}
+
+.movieRow::-webkit-scrollbar {
+  height: 8px;
+}
+
+.movieRow::-webkit-scrollbar-thumb {
+  background: yellow;
+  border-radius: 4px;
+}
+
+.movieRow::-webkit-scrollbar-track {
+  background: black;
+}
