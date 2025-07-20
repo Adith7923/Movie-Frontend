@@ -17,7 +17,7 @@ const UserDashboard = () => {
     const getMovies = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/movies/top-rated"
+          "http://localhost:3000/api/movies/top-rated"
         );
         setLatestMovies(res.data);
       } catch (err) {

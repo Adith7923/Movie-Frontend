@@ -8,7 +8,7 @@ const AllMoviesPage = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/movies").then((res) => {
+    axios.get("http://localhost:3000/api/movies").then((res) => {
       setMovies(res.data);
     });
   }, []);

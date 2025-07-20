@@ -1,0 +1,120 @@
+/* ReviewModal.module.css (No significant changes needed for this request) */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.modalContent {
+  background-color: #33333376;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: white;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalTitle {
+  color: #fff;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.modalLabel {
+  color: #fff;
+  background-color: transparent;
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.labelTopMargin {
+  margin-top: 1rem;
+}
+
+/* These styles are already present for validation borders and error messages */
+.inputError {
+  border: 2px solid red !important;
+}
+
+.errorMessage {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  background-color: transparent;
+  text-align: left;
+  padding-left: 5px;
+  margin-top: -8px;
+}
+
+.modalButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+}
+
+.submitBtn,
+.cancelBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submitBtn {
+  background-color: transparent;
+  color: yellow;
+}
+
+.submitBtn:hover {
+  color: rgb(255, 255, 255);
+}
+
+.cancelBtn {
+  color: white;
+  background-color: transparent;
+}
+
+.cancelBtn:hover {
+  color: #da190b;
+}
+
+.modalContent input[type="text"],
+.modalContent input[type="number"],
+.modalContent textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #444;
+  color: white;
+  box-sizing: border-box;
+}

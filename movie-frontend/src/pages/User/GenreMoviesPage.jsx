@@ -17,7 +17,7 @@ const GenreMoviesPage = () => {
 
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/movies/genre/${genreId}`
+          `http://localhost:3000/api/movies/genre/${genreId}`
         );
         console.log("Fetched movies:", res.data); // ✅ Check data received
         setMovies(res.data);

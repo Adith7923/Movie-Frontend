@@ -8,7 +8,7 @@ const GenrePage = () => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/genres");
+        const res = await axios.get("http://localhost:3000/api/genres");
         setGenres(res.data);
       } catch (err) {
         console.error("Failed to fetch genres:", err);
