@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import InputBox from "../inputbox/InputBox";
 import styles from "./ReviewModal.module.css";
+import axios from "axios";
+import { toast } from "react-toastify";
+import secureLocalStorage from "react-secure-storage";
 
-const ReviewModal = ({ isOpen, onClose, rating, comment, setRating, setComment, onSubmit }) => {
+const ReviewModal = ({ isOpen, onClose, rating, comment, setRating, setComment, onSubmit, id, fetchReviews, movie }) => {
   // ALL HOOKS MUST BE DECLARED AT THE TOP LEVEL OF THE COMPONENT,
   // BEFORE ANY CONDITIONAL RENDERING LOGIC.
   const [errors, setErrors] = useState({ rating: "", comment: "" });
@@ -20,6 +23,11 @@ const ReviewModal = ({ isOpen, onClose, rating, comment, setRating, setComment, 
   if (!isOpen) {
     return null;
   }
+
+  // Prevent error if movie is undefined
+  const imageSrc = movie && movie.image?.data
+    ? `data:${movie.image.contentType};base64,${movie.image.data}`
+    : null;
 
   // --- Rest of your component logic (unchanged) ---
 
@@ -80,9 +88,50 @@ const ReviewModal = ({ isOpen, onClose, rating, comment, setRating, setComment, 
     });
 
     if (!ratingError && !commentError) {
-      onSubmit();
+      handleSubmitReview();
       setErrors({ rating: "", comment: "" });
       }
+  };
+
+  const handleSubmitReview = async () => {
+    const ratingNum = Number(rating);
+    if (isNaN(ratingNum) || ratingNum < 0 || ratingNum > 5) {
+      toast.error("Rating must be a number between 0 and 5.");
+      return;
+    }
+    if (!comment.trim()) {
+      toast.error("Please provide a comment.");
+      return;
+    }
+
+    // Get token from secureLocalStorage
+    const token = secureLocalStorage.getItem("token");
+
+    try {
+      const res = await axios.post(
+        `http://localhost:3000/api/reviews/${id}`,
+        {
+          rating: ratingNum,
+          comment: comment,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      toast.success(res.data.message || "Review submitted successfully!");
+      fetchReviews();
+      onClose();
+    } catch (err) {
+      console.error("Error submitting review:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error("Failed to submit review. Please try again.");
+      }
+    }
   };
 
   return (
@@ -126,6 +175,8 @@ const ReviewModal = ({ isOpen, onClose, rating, comment, setRating, setComment, 
           </div>
         )}
 
+        {imageSrc && <img src={imageSrc} alt="Movie" />}
+
         <div className={styles.modalButtons}>
           <button onClick={handleSubmit} className={styles.submitBtn}>Submit</button>
           <button onClick={onClose} className={styles.cancelBtn}>Cancel</button>
@@ -143,6 +194,8 @@ ReviewModal.propTypes = {
   setRating: PropTypes.func.isRequired,
   setComment: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  fetchReviews: PropTypes.func.isRequired,
 };
 
 export default ReviewModal;

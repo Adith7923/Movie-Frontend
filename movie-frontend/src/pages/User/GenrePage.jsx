@@ -19,18 +19,18 @@ const GenrePage = () => {
   }, []);
 
   return (
-    <div style={{ padding: "3vw" }}>
+    <div style={{ padding: "3vw", maxWidth: "1400px", margin: "0 auto" }}>
       <h2 style={{ color: "yellow", fontSize: "28px", marginBottom: "24px" }}>
         Browse by Genre
       </h2>
 
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          justifyContent: "center",
-          gap: "60px",
-        }}
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, 400px)",
+    justifyContent: "center",
+    gap: "40px",
+  }}
       >
         {genres.length === 0 ? (
           <p style={{ color: "white" }}>Loading genres...</p>

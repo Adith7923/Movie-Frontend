@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "../../components/cards/ReviewCard";
-import SearchBar from "../../components/searchbar/SearchBar"; // Adjust path as needed
+import SearchBar from "../../components/searchbar/SearchBar";
 
 const AllReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
-  const [search, setSearch] = useState(""); // <-- Add search state
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchAllReviews = async () => {
@@ -20,7 +20,6 @@ const AllReviewsPage = () => {
     fetchAllReviews();
   }, []);
 
-  // Filter reviews based on search input
   const filteredReviews = reviews.filter((review) => {
     const username = review.userId?.name || "Anonymous";
     const movieTitle = review.movieId?.title || "Unknown Movie";
@@ -42,6 +41,7 @@ const AllReviewsPage = () => {
           alignItems: "center",
           marginBottom: "24px",
           flexWrap: "wrap",
+          gap: "12px",
         }}
       >
         <h2 style={{ color: "yellow", fontSize: "28px", margin: 0 }}>
@@ -53,14 +53,15 @@ const AllReviewsPage = () => {
           placeholder="Search reviews..."
         />
       </div>
+
+      {/* Responsive Grid */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          justifyContent: "center",
-          gap: "40px",
-          
-        }}
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, 400px)",
+    justifyContent: "center",
+    gap: "40px",
+  }}
       >
         {filteredReviews.map((review) => (
           <ReviewCard

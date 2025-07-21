@@ -2,12 +2,13 @@
   border: 2px solid yellow;
   border-radius: 25px;
   padding: 25px;
-  width: 100%;
-  min-width: 400px;
-  max-width: 400px;
-  height: 250px;
+  width: 400px;     /* Fixed width */
+  height: 250px;    /* Fixed height */
   color: white;
+  flex-shrink: 0;   /* Prevent shrinking in flex/grid */
 }
+
+
 
 .header {
   display: flex;
@@ -33,7 +34,7 @@
 .comment {
   font-size: 0.95rem;
   line-height: 1.4;
-  max-height: 160px; /* Adjust as needed */
+  max-height: 130px; /* Adjust as needed */
   overflow-y: auto;
   padding-right: 8px; /* Space for scrollbar */
   word-break: break-word;
